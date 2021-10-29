@@ -1,0 +1,135 @@
+.container {
+    background-color: @themeBgColorW;
+    transition: background-color 0.4s linear;
+}
+.dontRHeader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    z-index: 999;
+    height: 60px;
+    background-color: @themeBgColorA;
+    transition: background-color 0.3s linear;
+    backdrop-filter: blur(4px);
+    .forPhone({
+        .warp {
+            justify-content: center;
+        }
+        .menuWrap {
+            display: none
+        }
+        .dontRhamburger {
+            display: block;
+        }
+        .dontRthemeBtn {
+            position: relative;
+            top: 30px;
+            padding-left: 30px;
+        }
+        .dontRMenuModal {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 100vw;
+            background-color: @themeBgColorA;
+            transition: background-color 0.4s linear;
+            overflow: hidden;
+            padding-top: 60px;
+            padding-left: 20px;
+            z-index: 1;
+            :global {
+                .ant-menu {
+                    width: 80px;
+                    height: auto;
+                }
+                animation-name: fadeIn;
+                animation-play-state: running;
+                animation-duration: 0.2s;
+                animation-fill-mode: both;
+                animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
+                .ant-menu-item-selected::before {
+                    content: '';
+                    position: absolute;
+                    top: 50%;
+                    left: 99%;
+                    transform: translateY(-50%);
+                    height: 40%;
+                    width: 2px;
+                    background-color: #fff;
+                }
+            }
+        }
+    });
+    :global {
+        .ant-menu {
+            height: 60px;
+            background-color: rgba(13, 90, 254, 0.1);
+            width: 700px;
+        }
+        .ant-menu-item-selected {
+            background-color: @themeBgColorA !important;
+            &::before {
+                content: '';
+                position: absolute;
+                bottom: 0px;
+                left: 50%;
+                transform: translateX(-50%);
+                height: 2px;
+                width: 50px;
+                background-color: #fff;
+            }
+        }
+        .ant-menu-item:hover {
+            background-color: @themeBgColorH !important;
+        }
+        .ant-menu-horizontal {
+            line-height: 60px;
+        }
+    }
+}
+.dontRhamburger {
+    display: none;
+    position: absolute;
+    right: 20px;
+    z-index: 2;
+}
+.warp {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    margin: 0;
+    height: 60px;
+    line-height: 60px;
+    color: #fff;
+    cursor: pointer;
+    &:hover {
+        :global {
+            animation: anmScale 2s ease-out infinite;
+        }
+    }
+}
+
+.main {
+    overflow: hidden;
+}
+
+.dontRDiv {
+    height: 60px;
+    width: 100%;
+    background-color: @themeBgColor;
+    transition: background-color 0.4s linear;
+}
+
+.dontRthemeBtn {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
